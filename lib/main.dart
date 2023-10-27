@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puroclean/screens/home_screen.dart';
+import 'package:puroclean/screens/auth/auth_screen.dart';
 
 void main() {
   runApp(const App());
@@ -14,9 +14,8 @@ class App extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const AuthScreen(),
     );
   }
 }
