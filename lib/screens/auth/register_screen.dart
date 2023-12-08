@@ -149,7 +149,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           height: 56,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple,
+                              backgroundColor: const Color(0XFFF91919),
                             ),
                             child: Text(
                               'Sign Up',
@@ -188,7 +188,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     .copyWith(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w700,
-                                      color: Colors.purple,
+                                      color: const Color(0XFFF91919),
                                     ),
                               ),
                             ),

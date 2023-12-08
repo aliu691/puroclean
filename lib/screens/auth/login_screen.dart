@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:puroclean/constants/countries.dart';
 import 'package:puroclean/screens/auth/register_screen.dart';
+import 'package:puroclean/screens/time_log/time_log_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
@@ -24,15 +25,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController pascodeController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  bool passwordVisible = false;
 
   @override
   void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
+    phoneController.dispose();
+    pascodeController.dispose();
     super.dispose();
   }
 
@@ -76,11 +76,23 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           initialCountryCode: 'US',
+                          controller: phoneController,
                           countries: const [canada, us],
                           disableLengthCheck: true,
                           onChanged: (phone) {
                             print(phone.completeNumber);
                           },
+                        ),
+                        const SizedBox(height: 40),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: 'Passcode',
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(),
+                            ),
+                          ),
+                          controller: pascodeController,
+                          keyboardType: TextInputType.number,
                         ),
                         const SizedBox(height: 56),
                         SizedBox(
@@ -91,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               backgroundColor: const Color(0XFFF91919),
                             ),
                             child: Text(
-                              'Continue',
+                              'Login',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge!
@@ -100,7 +112,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     fontSize: 20,
                                   ),
                             ),
-                            onPressed: () {},
+                            onPressed: () => Navigator.push(
+                              context,
+                              TimeLogScreen.getRoute(),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 40),
@@ -129,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     .copyWith(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w700,
-                                      color: Colors.purple,
+                                      color: const Color(0XFFF91919),
                                     ),
                               ),
                             ),
